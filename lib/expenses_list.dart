@@ -10,7 +10,14 @@ class ExpensesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: expenses.length,
-        itemBuilder: (context, index) =>
-            Text(expenses[index].title)); // Replace with your desired widget
+        itemBuilder: (context, index) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(expenses[index].title),
+                Text(expenses[index]
+                    .amount
+                    .toString()), // Replace with your desired widget
+              ],
+            ));
   }
 }
