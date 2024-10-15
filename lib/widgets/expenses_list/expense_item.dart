@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
-// import intl for date formatting
-import 'package:intl/intl.dart';
 
 class ExpenseItems extends StatelessWidget {
   const ExpenseItems(this.expense, {super.key});
@@ -38,8 +36,8 @@ class ExpenseItems extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Icon(
-                      Icons.access_time, // Clock icon
+                    Icon(
+                      categoryIcons[expense.category],
                       size: 16,
                       color: Colors.grey,
                     ),
@@ -47,8 +45,11 @@ class ExpenseItems extends StatelessWidget {
                         width:
                             4), // Adds a little space between the icon and the text
                     Text(
-                      DateFormat('yyyy-MM-dd HH:mm').format(expense.date),
-                      style: const TextStyle(color: Colors.grey),
+                      expense.formattedDate, // Displays the formatted date
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
                     ),
                   ],
                 ),
