@@ -79,6 +79,15 @@ class _ExpensesState extends State<Expensed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 60, // Set a fixed height for the AppBar
+        backgroundColor: Colors.white, // Set the background color to white
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.add, color: Colors.black))
+        ],
+      ),
       body: Column(
         children: [
           const Text('The chart will go here!'),
