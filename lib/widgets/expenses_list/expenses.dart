@@ -80,12 +80,11 @@ class _ExpensesState extends State<Expensed> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 60, // Set a fixed height for the AppBar
-        backgroundColor: Colors.white, // Set the background color to white
         actions: [
+          // Add an icon button to the app bar, on the laft side
           IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.add, color: Colors.black))
+              icon: const Icon(Icons.add, color: Colors.black, size: 50)),
         ],
       ),
       body: Column(
