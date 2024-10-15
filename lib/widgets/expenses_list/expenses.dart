@@ -27,6 +27,12 @@ class _ExpensesState extends State<Expensed> {
     ),
   ];
 
+  void _openExpenseOverlay() {
+    // Add a method to open the expense overlay
+    showModalBottomSheet(
+        context: context, builder: (ctx) => const Text('Overlay'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +40,7 @@ class _ExpensesState extends State<Expensed> {
         actions: [
           // Add an icon button to the app bar, on the laft side
           IconButton(
-              onPressed: () {},
+              onPressed: _openExpenseOverlay,
               icon: const Icon(Icons.add, color: Colors.black, size: 50)),
         ],
       ),
