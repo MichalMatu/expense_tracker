@@ -32,10 +32,16 @@ class _NewExpenseState extends State<NewExpense> {
         ),
         TextField(
           controller: _amountController,
-          decoration: const InputDecoration(label: Text('Amount')),
+          decoration:
+              const InputDecoration(label: Text('Amount'), prefixText: '\$'),
           keyboardType: TextInputType.number,
         ),
         Row(children: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel')),
           ElevatedButton(
               onPressed: () {
                 print(_titleController.text);
