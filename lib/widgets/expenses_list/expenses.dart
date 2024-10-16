@@ -13,20 +13,7 @@ class Expensed extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expensed> {
-  final List<Expense> _registredExpenses = [
-    Expense(
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-      category: Category.leisure,
-    ),
-    Expense(
-      title: 'Weekly Groceries',
-      amount: 99.99,
-      date: DateTime.now(),
-      category: Category.food,
-    ),
-  ];
+  final List<Expense> _registredExpenses = [];
 
   void _openExpenseOverlay() {
     // Add a method to open the expense overlay
@@ -45,6 +32,13 @@ class _ExpensesState extends State<Expensed> {
     });
   }
 
+  void _deleteExpense(Expense expense) {
+    // Add a method to delete an expense
+    setState(() {
+      _registredExpenses.remove(expense);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +54,8 @@ class _ExpensesState extends State<Expensed> {
         children: [
           const Text('The chart will go here!'),
           Expanded(
-            child: ExpensesList(expenses: _registredExpenses),
+            child: ExpensesList(
+                expenses: _registredExpenses, deleteExpense: _deleteExpense),
           )
         ],
       ),
