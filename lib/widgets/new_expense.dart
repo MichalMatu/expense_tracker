@@ -32,6 +32,18 @@ class _NewExpenseState extends State<NewExpense> {
     });
   }
 
+  void _submitExpenseData() {
+    final entredAmount = double.tryParse(_amountController.text);
+    final amountIsInvalid = entredAmount == null || entredAmount <= 0;
+
+    if (_titleController.text.trim().isEmpty ||
+        amountIsInvalid ||
+        _selectedDate == null) {
+      // show error
+      return;
+    }
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -102,11 +114,7 @@ class _NewExpenseState extends State<NewExpense> {
               },
               child: const Text('Cancel')),
           ElevatedButton(
-              onPressed: () {
-                // print(_titleController.text);
-                // print(_amountController.text);
-              },
-              child: const Text('Save'))
+              onPressed: _submitExpenseData, child: const Text('Save'))
         ])
       ]),
     );
